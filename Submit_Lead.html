@@ -1,4 +1,3 @@
-<?php include 'session_check.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,14 +26,6 @@
       --background-color: #ffffff;
     }
 
-    /* Background image for interactive card section */
-    .interactive-card-section {
-      background-image: url("https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/4e873979-7f33-4843-82e6-12e42cf5ce0b.jpeg");
-      background-size: cover;
-      background-position: center;
-      padding: 50px 0;
-    }
-
     /* General Reset */
     * {
       box-sizing: border-box;
@@ -46,6 +37,10 @@
       font-family: "Oswald", sans-serif;
       background: var(--background-color);
       text-align: center;
+      background-image: url("https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/4e873979-7f33-4843-82e6-12e42cf5ce0b.jpeg");
+      background-size: cover;
+      background-position: center;
+      padding: 50px 0;
     }
 
     /* Desktop Navigation */
@@ -176,74 +171,88 @@
       }
     }
 
-    /* Interactive card styles */
-    .interactive-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      height: 100%;
+    .form-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .interactive-card:hover {
-      transform: translateY(-5px);
-      
-      transform: scale(1.02);
-      box-shadow: 0px 0px 35px rgba(81, 187, 196, 0.7);
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    .interactive-card .card-img-top {
-      transition: transform 0.3s ease, filter 0.3s ease;
-      max-width: 408px;
-      height: 305px;
-      object-fit: cover;
-    }
-
-    .interactive-card:hover .card-img-top {
-      transform: scale(1);
-      filter: grayscale(90%);
-    }
-
-    .interactive-card .btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -270%);
-      display: none;
-      font-size: 1.5rem;
-      padding: 10px 20px;
-      background-color: rgba(81, 187, 196, 1);
-      border: none;
-      color: white;
-      z-index: 2;
-    }
-
-    .interactive-card:hover .btn {
-      display: block;
-    }
-
-    .interactive-card .card-body {
-      position: relative;
-      text-align: center;
-      z-index: 1;
-      padding-bottom: 0 !important;
-      padding-top: 2px !important;
-    }
-
-    .interactive-card .card-title,
-    .interactive-card .card-text {
-      margin-bottom: 4px !important;
-    }
-
-    .interactive-card .card-title {
-      color: var(--primary-color);
-      font-size: 1.7em;
+    .form-container label {
       font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 5px;
     }
 
-    /* Remove borders from videos */
-    video {
-      border: 1px solid lightgrey !important;
+    .form-container input,
+    .form-container select {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .form-container input[type="submit"] {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container input[type="submit"]:hover {
+      background-color: #3da7b0;
+    }
+
+    .state-dropdown-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .state-dropdown {
+      width: 100%;
+    }
+
+    .text-box {
+      margin-bottom: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-container {
+      margin-bottom: 40px;
+    }
+
+    .play-button {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .play-button:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .form-container {
+        margin: 20px;
+        padding: 15px;
+      }
+
+      .play-button img {
+        width: 100px;
+        height: 100px;
+      }
     }
 
     /* Adjust title/header font colors */
@@ -283,7 +292,7 @@
       background-image: url("https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/165f0107-97c4-4879-a2c3-c88661183451.jpeg");
       background-size: cover;
       background-position: center;
-      padding: 20px 0;
+      padding: 20px 0px;
       text-align: center;
       color: var(--primary-color);
     }
@@ -311,6 +320,12 @@
       margin: 0;
       padding: 0;
       background-color: #ffffff;
+      background-image: url("https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/4e873979-7f33-4843-82e6-12e42cf5ce0b.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      width: 100vw;
     }
 
     .testimonial-carousel {
@@ -561,80 +576,6 @@
       overflow: hidden;
     }
 
-    /* --- PWA Install Banner Styles --- */
-    #pwaInstallBanner {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #007bff;
-      color: white;
-      padding: 16px;
-      text-align: center;
-      z-index: 1000;
-      font-family: Arial, sans-serif;
-    }
-
-    #pwaInstallBanner button {
-      margin-left: 16px;
-      background: #0056b3;
-      border: none;
-      padding: 8px 12px;
-      color: white;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    #pwaInstallBanner button.dismiss {
-      background: transparent;
-      font-size: 16px;
-    }
-
-    /* Custom mobile styles for interactive cards */
-    @media (max-width: 576px) {
-      .interactive-card {
-        max-width: 80%;
-        /* Adjust overall card width */
-        margin: 0px auto;
-        /* Center and add spacing */
-        padding: 0px;
-      }
-
-      .interactive-card .card-img-top {
-        max-width: 408px;
-        max-height: 250px;
-        object-fit: fill;
-      }
-
-      .interactive-card .card-title {
-        font-size: 1rem;
-        /* Smaller title font */
-      }
-
-      .interactive-card .card-text {
-        font-size: 0.9rem;
-        /* Smaller text font */
-      }
-
-      .interactive-card .btn {
-        position: absolute;
-        top: 10%;
-        /* Center vertically */
-        left: 50%;
-        /* Center horizontally */
-        transform: translate(-50%, -190%);
-        /* Perfect centering */
-        display: none;
-        font-size: 1.2rem;
-        padding: 10px 20px;
-        background-color: rgba(81, 187, 196, 1);
-        border: none;
-        color: white;
-        z-index: 2;
-      }
-    }
-
     /* Adjust testimony section spacing */
     .spacer {
       height: 15px;
@@ -642,17 +583,17 @@
     }
 
     h2.text-2xl {
-      margin-bottom: 5px;
+      margin-bottom: 0px;
       /* Reduce bottom margin */
     }
 
     .testimonial-carousel {
-      padding: 10px 0;
+      padding: 20px 0;
       /* Reduce from 50px if that's your current value */
     }
 
     .swiper {
-      padding: 10px 0;
+      padding: 0px 0;
       /* Reduce from 20px if that's your current value */
     }
   </style>
@@ -674,71 +615,8 @@
         }
       });
     });
-
-    let deferredPrompt;
-    const installBanner = document.getElementById("pwaInstallBanner");
-    const installBtn = document.getElementById("pwaInstallBtn");
-    const dismissBtn = document.getElementById("pwaDismissBtn");
-    const pwaMessage = document.getElementById("pwaMessage");
-
-    function isIos() {
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      return /iphone|ipad|ipod/.test(userAgent);
-    }
-
-    function isInStandaloneMode() {
-      return ("standalone" in window.navigator) && window.navigator.standalone;
-    }
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (window.innerWidth < 768) {
-        installBanner.style.display = "block";
-        pwaMessage.textContent = "Install our app for a better mobile experience!";
-        installBtn.style.display = "block";
-      }
-    });
-
-    if (isIos() && !isInStandaloneMode()) {
-      installBanner.style.display = "block";
-      pwaMessage.textContent = "To install, tap the Share icon and then 'Add to Home Screen'";
-      installBtn.style.display = "none";
-    }
-
-    installBtn.addEventListener("click", () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          console.log("User choice", choiceResult.outcome);
-          installBanner.style.display = "none";
-          deferredPrompt = null;
-        });
-      }
-    });
-
-    dismissBtn.addEventListener("click", () => {
-      installBanner.style.display = "none";
-    });
-
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-        navigator.serviceWorker
-          .register("/service-worker.js")
-          .then(function (registration) {
-            console.log(
-              "ServiceWorker registration successful with scope: ",
-              registration.scope
-            );
-          })
-          .catch(function (error) {
-            console.log("ServiceWorker registration failed: ", error);
-          });
-      });
-    }
   </script>
-
-  <title>Dashboard - HOWN Portal</title>
+  <title>Submit Lead - HOWN Portal</title>
 </head>
 
 <body>
@@ -763,72 +641,13 @@
       alt="Logo" class="logo" loading="lazy" />
     <button class="mobile-menu-toggle" aria-label="Toggle Menu">&#9776;</button>
     <div class="mobile-menu">
-      <a href="/HOWNready.php">HOWNready</a>
-      <a href="/Submit_Lead.php">Submit Lead</a>
-      <a href="/Summary.php">Summary</a>
-      <a href="/HOWNlife.php">HOWNlife</a>
+      <a href="/Dashboard.html">Home</a>
+      <a href="/HOWNready.html">HOWNready</a>
+      <a href="/Summary.html">Summary</a>
+      <a href="/HOWNlife.html">HOWNlife</a>
       <a href="/contact-us">Contact Us</a>
     </div>
   </div>
-
-  <!-- Interactive Card Section -->
-  <div class="interactive-card-section">
-    <div class="container text-center">
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-6 d-flex justify-content-center">
-          <div class="card interactive-card">
-            <img
-              src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/797172da-e37f-4a77-8ee1-3ca4db7435d5.png"
-              class="card-img-top" alt="HOWNready" />
-            <div class="card-body">
-              <h5 class="card-title">HOWNready</h5>
-              <p class="card-text">Get your clients HOWNready.</p>
-              <a href="#" class="btn btn-primary">HOWNready</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex justify-content-center">
-          <div class="card interactive-card">
-            <img
-              src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/guy-with-phone-account-285d62.svg"
-              class="card-img-top" alt="Submit a Lead" />
-            <div class="card-body">
-              <h5 class="card-title">Submit a Lead</h5>
-              <p class="card-text">Submit new leads quick & simple.</p>
-              <a href="#" class="btn btn-primary">Submit</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row g-4 justify-content-center mt-3">
-        <div class="col-md-6 d-flex justify-content-center">
-          <div class="card interactive-card">
-            <img
-              src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/guy-with-charts-285d62.svg"
-              class="card-img-top" alt="Deal Summary" />
-            <div class="card-body">
-              <h5 class="card-title">Client Summary</h5>
-              <p class="card-text">View the status of client deals.</p>
-              <a href="#" class="btn btn-primary">Summary</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex justify-content-center">
-          <div class="card interactive-card">
-            <img
-              src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/girl-exploring-map-285d62.svg"
-              class="card-img-top" alt="HOWNlife" />
-            <div class="card-body">
-              <h5 class="card-title">HOWNlife</h5>
-              <p class="card-text">Explore the HOWNlife platform.</p>
-              <a href="#" class="btn btn-primary">HOWNlife</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
   <!-- Business Achievements Block -->
   <div class="achievement-container">
@@ -862,49 +681,39 @@
     </div>
   </div>
 
-  <!-- HOWN Financial Introduction -->
-  <div class="container mt-5 text-center">
-    <h1>HOWN Introduction</h1>
-    <h5>
-      Market leading technology providing our partners unparalleled transparency.
-    </h5>
-    <h3 style="margin-top: 40px">HOWN Financial Overview</h3>
-    <div style="max-width: 100%; overflow: hidden; display: flex; justify-content: center;">
-      <video style="width: 100%; max-width: 600px; height: auto" controls>
-        <source
-          src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/4e784757-0e29-4a65-b575-93f485de4f1f.mp4"
-          type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
+  <!-- Referrer Form Block -->
+  <div class="form-container">
+    <h2 style="padding-bottom: 10px;">Submit Client Details</h2>
+    <form id="referral-form">
+      <!-- Client Details -->
+      <label for="client_name">Client Name:</label>
+      <input type="text" id="client_name" name="client_name" required />
 
-  <!-- Side by Side Videos -->
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6">
-        <h3 style="text-align: center">HOWNready Assessment</h3>
-        <div style="max-width: 100%; overflow: hidden">
-          <video style="width: 100%; height: auto" controls>
-            <source
-              src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/32408fdd-4aba-4f16-82f3-502b425349c0.mp4"
-              type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+      <label for="client_phone">Client Phone:</label>
+      <input type="tel" id="client_phone" name="client_phone" />
+
+      <label for="client_email">Client Email:</label>
+      <input type="email" id="client_email" name="client_email" required />
+
+      <!-- State Dropdown -->
+      <div class="state-dropdown-group">
+        <label for="state">State:</label>
+        <select id="state" name="state" class="state-dropdown">
+          <option value="" disabled selected>Select</option>
+          <option value="VIC">VIC</option>
+          <option value="NSW">NSW</option>
+          <option value="ACT">ACT</option>
+          <option value="QLD">QLD</option>
+          <option value="NT">NT</option>
+          <option value="WA">WA</option>
+          <option value="SA">SA</option>
+          <option value="TAS">TAS</option>
+        </select>
       </div>
-      <div class="col-md-6">
-        <h3 style="text-align: center">How to refer a client?</h3>
-        <div style="max-width: 100%; overflow: hidden">
-          <video style="width: 100%; height: auto" controls>
-            <source
-              src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/db1d972c-deae-4888-8b6d-edb5bde9c62b.mp4"
-              type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
+
+      <!-- Submit Button -->
+      <input type="submit" value="Submit" />
+    </form>
   </div>
 
   <!-- Services Block -->
@@ -922,7 +731,7 @@
       </div>
     </div>
     <div class="services-item">
-      <i class="fa-solid fa-piggy-bank services-icon" style="padding-right: 10px;"></i>
+      <i class="fa-solid fa-piggy-bank services-icon"></i>
       <div>
         <div class="services-label">SMSF</div>
       </div>
@@ -935,9 +744,55 @@
     </div>
   </div>
 
+  <!-- Learn to refer video -->
+  <div class="container mt-5 text-center">
+    <div class="text-box" style="
+          background-color: rgba(255, 255, 255, 0.7);
+          border-radius: 10px;
+          padding: 20px;
+          display: inline-block;
+        ">
+      <h1>Quick Guide: How to Refer Clients</h1>
+      <h5>Our short video below outlines the simple step to refer a client.</h5>
+      <h3 style="margin-top: 20px; font-weight: bold">Video instructions</h3>
+    </div>
+    <div class="video-container" style="
+          max-width: 100%;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          position: relative;
+          margin-top: 20px;
+        ">
+      <video id="video" style="width: 100%; max-width: 1000px; height: auto" controls>
+        <source
+          src="https://assets.softr-files.com/applications/9521e7b5-95ff-4a2d-9c75-3e27ff478449/assets/db1d972c-deae-4888-8b6d-edb5bde9c62b.mp4"
+          type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="play-button" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+          ">
+        <img src="https://www.freeiconspng.com/uploads/play-button-icon-png-2.png" alt="Play Button"
+          style="width: 170px; height: 170px" />
+      </div>
+    </div>
+  </div>
+
   <!-- Testimony -->
   <div class="spacer"></div>
-  <h2 class="text-2xl font-bold">What Our Customers Say</h2>
+  <div class="text-box" style="
+          background-color: rgba(255, 255, 255, 0.7);
+          border-radius: 10px;
+          padding: 20px;
+          display: inline-block;
+        ">
+    <h1>What Our Customers Say</h1>
+  </div>
   <div class="testimonial-carousel">
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
@@ -1011,14 +866,6 @@
       <div class="swiper-pagination"></div>
     </div>
   </div>
-
-  <!-- --- Custom PWA Install Popup for Mobile --- -->
-  <div id="pwaInstallBanner">
-    <span id="pwaMessage">Install our partner app!</span>
-    <button id="pwaInstallBtn">Install</button>
-    <button id="pwaDismissBtn" class="dismiss">✕</button>
-  </div>
-
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -1052,6 +899,27 @@
         320: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
       },
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const video = document.getElementById('video');
+      const playButton = document.querySelector('.play-button');
+
+      if (playButton && video) {
+        playButton.addEventListener('click', function () {
+          video.play();
+          playButton.style.display = 'none';
+        });
+
+        video.addEventListener('pause', function () {
+          playButton.style.display = 'block';
+        });
+
+        video.addEventListener('play', function () {
+          playButton.style.display = 'none';
+        });
+      }
     });
   </script>
 </body>
