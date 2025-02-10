@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://preview.colorlib.com/theme/bootstrap/css-table-16/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="https://preview.colorlib.com/theme/bootstrap/css-table-16/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://preview.colorlib.com/theme/bootstrap/css-table-16/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="https://preview.colorlib.com/theme/bootstrap/css-table-16/css/style.css">
+
+    <title>Table #6</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="container">
+        <h2 class="mb-5">Table #6</h2>
+        <div class="table-responsive">
+          <table class="table table-striped custom-table">
+            <thead>
+              <tr>
+                <th scope="col">Order</th>
+                <th scope="col">Name</th>
+                <th scope="col">Occupation</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Education</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Rows will be populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"90b007178d85d71d","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.1.0","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
+
+    <!-- Listen for messages from the parent portal -->
+    <script>
+      window.addEventListener('message', (event) => {
+        // Ensure the message is from a trusted source
+        if (event.origin !== 'https://your-main-portal.com') return;
+
+        // Parse the received data
+        const data = event.data;
+
+        // Get the table body
+        const tbody = document.getElementById('table-body');
+
+        // Clear existing rows
+        tbody.innerHTML = '';
+
+        // Populate the table with the received data
+        data.forEach((item) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.order}</td>
+            <td><a href="#">${item.name}</a></td>
+            <td>
+              ${item.occupation}
+              <small class="d-block">${item.description}</small>
+            </td>
+            <td>${item.contact}</td>
+            <td>${item.education}</td>
+            <td><a href="#" class="more">Details</a></td>
+          `;
+          tbody.appendChild(row);
+        });
+      });
+    </script>
+  </body>
+</html>
